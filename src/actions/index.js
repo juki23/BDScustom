@@ -75,3 +75,84 @@ export const actUpdateProduct = (product) => {
         product
     }
 }
+
+// BDS DISTRICT
+
+export const actFetchDistrictRequest = () => {
+    return dispatch => {
+        return callApi('district', 'GET', null).then(res => {
+            dispatch(actFetchDistrict(res.data));
+        });
+    };
+}
+
+export const actFetchDistrict = (district) => {
+    return {
+        type : Types.FETCH_DISTRICT,
+        district
+    }
+}
+
+// BDS PROJECT
+
+export const actFetchProjectRequest = () => {
+    return dispatch => {
+        return callApi('project', 'GET', null).then(res => {
+            dispatch(actFetchProject(res.data));
+        });
+    };
+}
+
+export const actFetchProject = (project) => {
+    return {
+        type : Types.FETCH_PROJECT,
+        project
+    }
+}
+
+export const actGetProjectRequest = (id) => {
+    return dispatch => {
+        return callApi(`project/${id}`, 'GET', null).then(res => {
+            dispatch(actGetProject(res.data));
+        });
+    }
+}
+
+export const actGetProject = (project) => {
+    return {
+        type : Types.ITEM_PROJECT,
+        project
+    }
+}
+
+// BDS NEWS
+
+export const actFetchNewsRequest = () => {
+    return dispatch => {
+        return callApi('news', 'GET', null).then(res => {
+            dispatch(actFetchNews(res.data));
+        });
+    };
+}
+
+export const actFetchNews = (news) => {
+    return {
+        type : Types.FETCH_NEWS,
+        news
+    }
+}
+
+export const actGetNewsRequest = (id) => {
+    return dispatch => {
+        return callApi(`news/${id}`, 'GET', null).then(res => {
+            dispatch(actGetNews(res.data));
+        });
+    }
+}
+
+export const actGetNews = (news) => {
+    return {
+        type : Types.ITEM_NEWS,
+        news
+    }
+}

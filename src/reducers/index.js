@@ -1,10 +1,16 @@
 import { combineReducers } from 'redux';
-import products from './products';
-import itemEditing from './itemEditing';
+import district from './district';
+import project from './project';
+import news from './news';
+import newsItem from './newsItem';
+import projectItem from './projectItem';
 
 const appReducers = combineReducers({
-    products,
-    itemEditing
+    district,
+    project,
+    news,
+    newsItem,
+    projectItem
 });
 
 export default appReducers;

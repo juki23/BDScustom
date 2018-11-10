@@ -3,3 +3,20 @@ export const ADD_PRODUCT = 'ADD_PRODUCT';
 export const UPDATE_PRODUCT = 'UPDATE_PRODUCT';
 export const DELETE_PRODUCT = 'DELETE_PRODUCT';
 export const EDIT_PRODUCT = 'EDIT_PRODUCT';
+
+// DISTRICT
+export const FETCH_DISTRICT = 'FETCH_DISTRICT';
+export const ADD_DISTRICT = 'ADD_DISTRICT';
+export const UPDATE_DISTRICT = 'UPDATE_DISTRICT';
+export const DELETE_DISTRICT = 'DELETE_DISTRICT';
+export const EDIT_DISTRICT = 'EDIT_DISTRICT';
+
+// PROJECT
+export const FETCH_PROJECT = 'FETCH_PROJECT';
+export const EDIT_PROJECT = 'EDIT_PROJECT';
+export const ITEM_PROJECT = 'ITEM_PROJECT';
+
+// NEWS
+export const FETCH_NEWS = 'FETCH_NEWS';
+export const EDIT_NEWS = 'EDIT_NEWS';
+export const ITEM_NEWS = 'ITEM_NEWS';

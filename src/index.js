@@ -1,12 +1,3 @@
-// import React from 'react';
-// import ReactDom from 'react-dom';
-
-// ReactDom.render(
-//     <h1>Hello React</h1>,
-//     document.getElementById('root')
-// )
-
-
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './components/App/App';
@@ -15,6 +6,7 @@ import appReducers from './reducers/index';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import 'jquery';
+import 'font-awesome/css/font-awesome.css';
 
 const store = createStore(
     appReducers,

@@ -7,7 +7,6 @@ import Header from './Header';
 import Footer from './Footer';
 
 import './wp-content/cache/autoptimize/css/autoptimize.css';
-import './wp-includes/js/jquery/jquery';
 import './wp-content/cache/autoptimize/js/autoptimize';
 
 class App extends Component {
@@ -16,7 +15,7 @@ class App extends Component {
     };
 
     render() {
-        var {district} = this.props;
+        var { district } = this.props;
 
         return (
             <HashRouter>
@@ -27,9 +26,6 @@ class App extends Component {
                     {this.showContentMenus(routes)}
                     {/* End */}
                     <Footer district={district} />
-                    <noscript>
-                        &lt;div style="display:inline;"&gt; &lt;img height="1" width="1" style="border-style:none;" alt="" src="http://googleads.g.doubleclick.net/pagead/viewthroughconversion/875562315/?guid=ON&amp;amp;script=0"/&gt;&lt;/div&gt;
-                    </noscript>
                 </div>
             </HashRouter>
         );

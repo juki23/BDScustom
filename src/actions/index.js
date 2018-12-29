@@ -1,86 +1,11 @@
 import * as Types from './../constants/ActionTypes';
 import callApi from './../utils/apiCaller';
 
-export const actFetchProductsRequest = () => {
-    return dispatch => {
-        return callApi('products', 'GET', null).then(res => {
-            dispatch(actFetchProducts(res.data));
-        });
-    };
-}
-
-export const actFetchProducts = (products) => {
-    return {
-        type : Types.FETCH_PRODUCTS,
-        products
-    }
-}
-
-export const actDeleteProductRequest = (id) => {
-    return dispatch => {
-        return callApi(`products/${id}`, 'DELETE', null).then(res =>{
-            dispatch(actDeleteProduct(id));
-        })
-    }
-}
-
-export const actDeleteProduct = (id) => {
-    return {
-        type : Types.DELETE_PRODUCT,
-        id
-    }
-}
-
-export const actAddProductRequest = (product) => {
-    return dispatch => {
-        return callApi('products', 'POST', product).then(res => {
-            dispatch(actAddProduct(res.data));
-        });
-    }
-}
-
-export const actAddProduct = (product) => {
-    return {
-        type : Types.ADD_PRODUCT,
-        product
-    }
-}
-
-export const actGetProductRequest = (id) => {
-    return dispatch => {
-        return callApi(`products/${id}`, 'GET', null).then(res => {
-            dispatch(actGetProduct(res.data));
-        });
-    }
-}
-
-export const actGetProduct = (product) => {
-    return {
-        type : Types.EDIT_PRODUCT,
-        product
-    }
-}
-
-export const actUpdateProductRequest = (product) => {
-    return dispatch => {
-        return callApi(`products/${product.id}`, 'PUT', product).then(res => {
-            dispatch(actUpdateProduct(res.data));
-        });
-    }
-}
-
-export const actUpdateProduct = (product) => {
-    return {
-        type : Types.UPDATE_PRODUCT,
-        product
-    }
-}
-
 // BDS DISTRICT
 
 export const actFetchDistrictRequest = () => {
     return dispatch => {
-        return callApi('district', 'GET', null).then(res => {
+        return callApi('getAllDistricts', 'GET', null).then(res => {
             dispatch(actFetchDistrict(res.data));
         });
     };
@@ -97,7 +22,15 @@ export const actFetchDistrict = (district) => {
 
 export const actFetchProjectRequest = () => {
     return dispatch => {
-        return callApi('project', 'GET', null).then(res => {
+        return callApi('getAllProjects', 'GET', null).then(res => {
+            dispatch(actFetchProject(res.data));
+        });
+    };
+}
+
+export const actFetchProjectByDistrictRequest = (id) => {
+    return dispatch => {
+        return callApi(`getProjectByDistrict/${id}`, 'GET', null).then(res => {
             dispatch(actFetchProject(res.data));
         });
     };
@@ -112,8 +45,8 @@ export const actFetchProject = (project) => {
 
 export const actGetProjectRequest = (id) => {
     return dispatch => {
-        return callApi(`project/${id}`, 'GET', null).then(res => {
-            dispatch(actGetProject(res.data));
+        return callApi(`getProject/${id}`, 'GET', null).then(res => {
+            dispatch(actGetProject(res.data[0]));
         });
     }
 }
@@ -129,7 +62,7 @@ export const actGetProject = (project) => {
 
 export const actFetchNewsRequest = () => {
     return dispatch => {
-        return callApi('news', 'GET', null).then(res => {
+        return callApi('getAllNews', 'GET', null).then(res => {
             dispatch(actFetchNews(res.data));
         });
     };
@@ -144,8 +77,8 @@ export const actFetchNews = (news) => {
 
 export const actGetNewsRequest = (id) => {
     return dispatch => {
-        return callApi(`news/${id}`, 'GET', null).then(res => {
-            dispatch(actGetNews(res.data));
+        return callApi(`getNews/${id}`, 'GET', null).then(res => {
+            dispatch(actGetNews(res.data[0]));
         });
     }
 }
@@ -154,5 +87,39 @@ export const actGetNews = (news) => {
     return {
         type : Types.ITEM_NEWS,
         news
+    }
+}
+
+// BDS ABOUT
+
+export const actFetchAboutRequest = () => {
+    return dispatch => {
+        return callApi('getAllAbouts', 'GET', null).then(res => {
+            dispatch(actFetchAbout(res.data));
+        });
+    };
+}
+
+export const actFetchAbout = (about) => {
+    return {
+        type : Types.FETCH_ABOUT,
+        about
+    }
+}
+
+// BDS CONTACT
+
+export const actAddContactRequest = (contact) => {
+    return dispatch => {
+        return callApi('insertContact', 'POST', contact).then(res => {
+            dispatch(actAddContact(res.data));
+        });
+    }
+}
+
+export const actAddContact = (contact) => {
+    return {
+        type : Types.ADD_CONTACT,
+        contact
     }
 }

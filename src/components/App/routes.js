@@ -33,7 +33,7 @@ const routes = [
         main: () => <News />
     },
     {
-        path: "/projectitem/:id",
+        path: "/project/item/:id",
         exact: false,
         main: ({match}) => <ProjectItem match={match} />
     },

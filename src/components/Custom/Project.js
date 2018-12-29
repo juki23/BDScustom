@@ -1,23 +1,45 @@
 import React, { Component } from 'react';
-import { actFetchProjectRequest } from './../../actions/index';
+import { actFetchProjectRequest, actFetchProjectByDistrictRequest } from './../../actions/index';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-
-
 class Project extends Component {
 	componentDidMount() {
-		this.props.onGetProject();
+		window.scrollTo(0, 0);
+		var { match } = this.props;
+		if (match) {
+			var id = match.params.id;
+			this.props.onGetProjectByDistrict(id);
+		} else {
+			this.props.onGetProject();
+		};
+	};
+
+	componentDidUpdate(prevProps) {
+		var { match } = this.props;
+		if (prevProps.match && match) {
+			if (prevProps.match.params.id !== match.params.id) {
+				var id = match.params.id;
+				this.props.onGetProjectByDistrict(id);
+			};
+		};
 	};
 
 	render() {
-		var { project } = this.props;
+		var { project, match } = this.props;
+		var district = project.length > 0 ? project[0].district_name : "";
 		return (
 			<div>
 				<div className="post-list">
 					<div className="container">
 						<div className="row">
-							<legend> <span><i className="fa fa-caret-right" aria-hidden="true" /> Căn hộ Quận 2 <i className="fa fa-caret-left" aria-hidden="true" /></span></legend>
+							<legend>
+								<span>
+									<i className="fa fa-caret-right" aria-hidden="true" />
+									{match ? `Căn hộ ${district}` : "Tất cả dự án"}
+									<i className="fa fa-caret-left" aria-hidden="true" />
+								</span>
+							</legend>
 							<div className="col-md-12">
 								<div className="duan-intro">
 									<p>&nbsp;</p>
@@ -44,14 +66,14 @@ class Project extends Component {
 				<div key={index} className="col-md-4 col-sm-6">
 					<div className="duan-loop">
 						<div className="loop-img-wrapper">
-							<Link style={{ textAlign: 'center' }} to={`/projectitem/${proj.id}`}>
+							<Link style={{ textAlign: 'center' }} to={`/project/item/${proj.id}`}>
 								<div className="mask" />
 								<img width={338} height={228} src={require("./../App/wp-content/uploads/2017/09/vi-tri-du-an-one-verandah-mapletree-quan-2-338x228.jpg")} className="attachment-custom-duan size-custom-duan wp-post-image" alt="one verandah mapletree" />
 							</Link>
 						</div>
 						<div className="info-wrapper">
 							<div className="info-inner">
-								<Link to={`/projectitem/${proj.id}`}>
+								<Link to={`/project/item/${proj.id}`}>
 									<h2 className="duan-title">{proj.project_name}</h2>
 								</Link>
 								<div className="info-loop"><b>Giá:</b> <span>{proj.price}</span></div>
@@ -60,7 +82,7 @@ class Project extends Component {
 									<a target="_blank" href="https://www.facebook.com">
 										<i className="fa fa-facebook" aria-hidden="true" /></a>
 								</div>
-								<Link to={`/projectitem/${proj.id}`}><div className="read-btn">CHI TIẾT</div></Link>
+								<Link to={`/project/item/${proj.id}`}><div className="read-btn">CHI TIẾT</div></Link>
 							</div>
 						</div>
 					</div>
@@ -81,6 +103,9 @@ const mapDispatchToProps = (dispatch, props) => {
 	return {
 		onGetProject: () => {
 			dispatch(actFetchProjectRequest());
+		},
+		onGetProjectByDistrict: (id) => {
+			dispatch(actFetchProjectByDistrictRequest(id));
 		}
 	}
 }

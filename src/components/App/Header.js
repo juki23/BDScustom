@@ -5,7 +5,7 @@ import logo from './wp-content/uploads/2018/08/cropped-logo-ngang-xanh.jpg';
 class Header extends Component {
 
     render() {
-        var { district } = this.props;
+        var { district } = this.props;        
         return (
             <header>
                 <section className="logo-menu">
@@ -15,12 +15,15 @@ class Header extends Component {
                                 <span className="sr-only">Toggle navigation</span>
                                 <span className="icon-bar" />
                                 <span className="icon-bar" /> <span className="icon-bar" /> </button>
-                                <div className="logo-tag"> <Link replace to="/" className="custom-logo-link" >
-                                    <img width={300} height={89} src={logo} className="custom-logo" alt="Sàn Giao Dịch BĐS Gia Hưng Land" itemProp="logo" /></Link></div>
+                                <div className="logo-tag">
+                                    <Link replace to="/" className="custom-logo-link" >
+                                        <img width={300} height={89} src={logo} className="custom-logo" alt="Sàn Giao Dịch BĐS Gia Hưng Land" itemProp="logo" />
+                                    </Link>
+                                </div>
                             </div>
                             <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                                 <div className="top-phone">
-                                    <form role="search" method="get" className="search-form" action="https://giahungland.vn/">
+                                    <form role="search" className="search-form">
                                         <label>
                                             <input type="search" className="search-field" placeholder="Tìm kiếm …" name="s" />
                                         </label>
@@ -32,24 +35,28 @@ class Header extends Component {
                                 </div>
                                 <div className="menu-main-menu-container">
                                     <ul id="menu-main-menu" className="nav navbar-nav navbar-right">
-                                        <li id="menu-item-25" className="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-25 active"><Link replace to="/"><i className="fa fa-home" aria-hidden="true" /></Link></li>
-                                        <li id="menu-item-27" className="menu-item menu-item-type-taxonomy menu-item-object-project_cat menu-item-has-children menu-item-27 dropdown">
+                                        <li className="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home active">
+                                            <Link replace to="/">
+                                                <i className="fa fa-home" aria-hidden="true" />
+                                            </Link>
+                                        </li>
+                                        <li className="menu-item menu-item-type-custom menu-item-object-project_cat menu-item-has-children dropdown">
                                             <Link replace to="/project">Dự án<span className="caret" /></Link>
                                             <ul role="menu" className=" dropdown-menu">
                                                 {this.showDistrictMenu(district)}
                                             </ul>
                                         </li>
-                                        <li id="menu-item-1325" className="menu-item menu-item-type-custom menu-item-object-custom menu-item-820">
-                                            <Link to="/news">Tin tức</Link>
+                                        <li className="menu-item menu-item-type-custom">
+                                            <Link replace to="/news">Tin tức</Link>
                                         </li>
-                                        <li id="menu-item-2157" className="menu-item menu-item-type-custom menu-item-object-custom menu-item-2157">
+                                        <li className="menu-item menu-item-type-custom">
                                             <Link replace to="/">TUYỂN DỤNG</Link>
                                         </li>
-                                        <li id="menu-item-820" className="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-820">
+                                        <li className="menu-item menu-item-type-custom">
                                             <Link replace to="/">Hoạt Động Gia Hưng Land</Link>
                                         </li>
-                                        <li id="menu-item-42" className="menu-item menu-item-type-post_type menu-item-object-page menu-item-42">
-                                            <Link replace to="/contact">Liên hệ</Link>
+                                        <li className="menu-item menu-item-type-custom">
+                                            <Link replace to="/contact" >Liên hệ</Link>
                                         </li>
                                     </ul>
                                 </div>

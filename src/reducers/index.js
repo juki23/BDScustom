@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux';
 import district from './district';
+import about from './about';
 import project from './project';
 import news from './news';
 import newsItem from './newsItem';
@@ -10,7 +11,8 @@ const appReducers = combineReducers({
     project,
     news,
     newsItem,
-    projectItem
+    projectItem,
+    about
 });
 
 export default appReducers;

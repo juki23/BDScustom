@@ -35,25 +35,28 @@ class Project extends Component {
 
     showProject = (project) => {
         var result = [];
-        if(project.length <= 0)return result;
+        if (project.length <= 0) return result;
         result = project.map((proj, index) => {
             return (
                 <div className="col-md-4 col-sm-6" key={index}>
                     <div className="duan-loop">
-                        <div className="loop-img-wrapper"> <a style={{ textAlign: 'center' }} href="du-an/green-mark-dat-gia-quan-12/index.html"><div className="mask" />
-                            <img width={338} height={228} src={require("./../../App/wp-content/uploads/2018/10/green-mark-dat-gia-quan-12-338x228.jpg")} className="attachment-custom-duan size-custom-duan wp-post-image" alt="green mark quan 12" /> </a></div>
+                        <div className="loop-img-wrapper">
+                            <Link to={`/project/item/${proj.id}`} style={{ textAlign: 'center' }}><div className="mask" />
+                                <img width={338} height={228} src={require("./../../App/wp-content/uploads/2018/10/green-mark-dat-gia-quan-12-338x228.jpg")} className="attachment-custom-duan size-custom-duan wp-post-image" alt="green mark quan 12" />
+                            </Link>
+                        </div>
                         <div className="info-wrapper">
                             <div className="info-inner">
-                                <a href="du-an/green-mark-dat-gia-quan-12/index.html">
+                                <Link to={`/project/item/${proj.id}`}>
                                     <h2 className="duan-title">{proj.project_name}</h2>
-                                </a>
+                                </Link>
                                 <div className="info-loop"><b>Giá:</b> <span>{proj.price}</span></div>
                                 <div className="info-loop"><b>Vị trí:</b> {proj.address}</div>
                                 <div className="social-loop">
                                     <a target="_blank" href="https://www.facebook.com/">
                                         <i className="fa fa-facebook" aria-hidden="true" /></a>
                                 </div>
-                                <Link to="/project">
+                                <Link to={`/project/item/${proj.id}`}>
                                     <div className="read-btn">CHI TIẾT</div>
                                 </Link>
                             </div>

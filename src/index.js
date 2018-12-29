@@ -6,6 +6,7 @@ import appReducers from './reducers/index';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import 'jquery';
+// import './components/App/wp-includes/js/jquery/jquery';
 import 'font-awesome/css/font-awesome.css';
 
 const store = createStore(

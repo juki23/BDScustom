@@ -5,6 +5,7 @@ import { actFetchNewsRequest } from './../../actions/index';
 
 class News extends Component {
     componentDidMount() {
+        window.scrollTo(0, 0);
         this.props.onGetNews();
     };
     render() {
@@ -56,7 +57,7 @@ class News extends Component {
                                 <a target="_blank" href="https://www.facebook.com">
                                     <i className="fa fa-facebook" aria-hidden="true" /></a>
                             </div>
-                            <Link to={`/newsitem/${ne.id}`} rel="bookmark" title className="btn giahung-btn pull-right">Xem tiếp
+                            <Link to={`/newsitem/${ne.id}`} rel="bookmark" className="btn giahung-btn pull-right">Xem tiếp
                             <i className="fa fa-arrow-right" aria-hidden="true" />
                             </Link>
                         </div>

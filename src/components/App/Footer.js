@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import logo from './wp-content/uploads/2018/08/cropped-logo-ngang-xanh.jpg';
 import footerLogo from './wp-content/uploads/2018/08/footerLogo.jpg';
+import Contact from './Contact';
 
 class Footer extends Component {
     render() {
@@ -9,31 +10,7 @@ class Footer extends Component {
         return (
             <div>
                 <section id="contact" className="contact" style={{ background: `linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4) ), url(${footerLogo})`, backgroundAttachment: 'fixed', backgroundSize: 'cover' }}>
-                    <div className="container">
-                        <div className="row">
-                            <div className="col-sm-5">
-                                <legend> Điền thông tin để nhận báo giá và tư vấn miễn phí</legend>
-                            </div>
-                            <div className="col-sm-7">
-                                <div role="form" className="wpcf7" id="wpcf7-f1341-o1" lang="vi" dir="ltr">
-                                    <div className="screen-reader-response" />
-                                    <form className="wpcf7-form" noValidate="novalidate">
-                                        <p><span className="wpcf7-form-control-wrap your-name">
-                                            <input type="text" size={40} className="wpcf7-form-control wpcf7-text wpcf7-validates-as-required form-control" placeholder="Họ tên *" /></span></p>
-                                        <div className="row" style={{ marginBottom: 10 }}>
-                                            <div className="col-sm-6"> <span className="wpcf7-form-control-wrap your-phone">
-                                                <input type="tel" size={40} className="wpcf7-form-control wpcf7-text wpcf7-tel wpcf7-validates-as-required wpcf7-validates-as-tel form-control" placeholder="Số điện thoại *" /></span></div>
-                                            <div className="col-sm-6"> <span className="wpcf7-form-control-wrap your-email">
-                                                <input type="email" size={40} className="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-email form-control" placeholder="Địa chỉ Email" /></span></div>
-                                        </div>
-                                        <p><span className="wpcf7-form-control-wrap your-message"><textarea name="your-message" cols={40} rows={3} className="wpcf7-form-control wpcf7-textarea form-control" placeholder="Nội dung" /></span></p>
-                                        <p><input type="submit" defaultValue="Gửi đi" className="wpcf7-form-control wpcf7-submit btn-warning btn giahung-btn" /></p>
-                                        <div className="wpcf7-response-output wpcf7-display-none" />
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <Contact/>
                 </section>
                 <section className="footers">
                     <div className="container footers">

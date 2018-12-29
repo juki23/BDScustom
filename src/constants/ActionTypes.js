@@ -20,3 +20,9 @@ export const ITEM_PROJECT = 'ITEM_PROJECT';
 export const FETCH_NEWS = 'FETCH_NEWS';
 export const EDIT_NEWS = 'EDIT_NEWS';
 export const ITEM_NEWS = 'ITEM_NEWS';
+
+// ABOUT
+export const FETCH_ABOUT = 'FETCH_ABOUT';
+
+// CONTACT
+export const ADD_CONTACT = 'ADD_CONTACT';
